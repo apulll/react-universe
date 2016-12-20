@@ -4,16 +4,12 @@ var React = require('react');
 var ReactDomServer = require('react-dom/server');
 
 var ReactRouter = require('react-router');
+var routes = require('./routes.jsx');
 // app.use(express.static(path.join(__dirname,'dist')))
 router.get('*',function(req,res){
   var props = {title:'Universal React7878'}
   ReactRouter.match({
-    routes: (
-      <ReactRouter.Route history={ReactRouter.BrowserHistory}>
-        <ReactRouter.Route path="/" component={require('../Component.jsx')}>
-        </ReactRouter.Route>
-      </ReactRouter.Route>
-    ),
+    routes: routes,
     location:req.url
   },function(err,redirectLocation,renderProps){
     if(renderProps) {
